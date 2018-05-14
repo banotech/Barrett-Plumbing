@@ -30,6 +30,7 @@ $$(document).on('page:init', function (e) {
 	var page = e.detail;
 	var name = page.name;
 	if(name == "about"){
-		bp.popup("Name: "+app.name+"<br>Package: "+app.id+"<br>Version: "+app.version);
+		//bp.popup("Name: "+app.name+"<br>Package: "+app.id+"<br>Version: "+app.version);
+		bp.testConnection();
 	}
-})
+});

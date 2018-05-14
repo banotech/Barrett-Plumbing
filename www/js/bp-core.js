@@ -1,4 +1,5 @@
 var bp = {
+	loader: '<div class="block block-strong text-align-center"><div class="preloader color-multi"></div></div>',
 	popup: function(body){
 		app.dialog.alert(body);
 	},
@@ -32,6 +33,17 @@ var bp = {
 		      console.log('Sheet opened');
 		    },
 		  }
+		});
+	},
+	update: function(){
+		
+	},
+	testConnection(){
+		app.preloader.show();
+		app.request.get("https://bano.tech/bp-app/bp.php?function=test",function(data){
+			console.log(data);
+			bp.popup(data);
+			app.preloader.hide();
 		});
 	}
 }
