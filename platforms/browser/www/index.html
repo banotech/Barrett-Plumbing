@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS -->
+    <link rel="stylesheet" href="lib/framework7/css/framework7.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7-icons.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <!-- App root element -->
+    <div id="app">
+    
+    		<div class="panel panel-left panel-reveal">
+      <div class="content-block padding-5">
+        <!-- Clicking on link with "panel-close" class will close panel -->
+       	<p style="text-align:right;padding-right:10px;"><a href="#" class="panel-close"><i class="f7-icons">close</i></a></p>
+       	<h3 style="text-align:center;">Barrett Plumbing</h3>
+        <div class="list links-list">
+		  <ul>
+		    <li><a href="#">Link 1</a></li>
+		    <li><a href="#">Link 2</a></li>
+		    <li><a href="#">Link 3</a></li>
+		  </ul>
+		</div>
+      </div>
+    </div>
+    
+      <!-- Statusbar overlay -->
+      <div class="statusbar"></div>
+
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+        <!-- Initial Page, "data-name" contains page name -->
+        <div data-name="home" class="page">
+
+          <!-- Top Navbar -->
+          <div class="navbar">
+			  <div class="navbar-inner sliding">
+			    
+			    <div class="title">Barrett Plumbing</div>
+			     <div class="right">
+			  	<a href="#" class="link icon-only panel-open"><i class="f7-icons">bars</i></a>
+			  </div>
+			  </div>
+			</div>
+
+          
+
+          <!-- Scrollable page content -->
+          <div class="page-content padding-5">
+          
+            <p>Page content goes here</p>
+            <!-- Link to another page -->
+            <a href="/about/">About app</a><hr>
+            <p><a href="#" class="panel-open">Open Left Panel</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="lib/framework7/js/framework7.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+    <script type="text/javascript" src="js/bp-core.js"></script>
+  </body>
+</html>
