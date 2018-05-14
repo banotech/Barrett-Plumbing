@@ -16,21 +16,26 @@ var app = new Framework7({
   theme: "md",
   statusbar: {
     iosOverlaysWebView: true,
-    materialBackgroundColor: "#2196f3"
+    materialBackgroundColor: "#2196f3",
+    overlay:true,
+    enabled:true,
   },
   dialog: {
 	  title: "Barrett Plumbing"
   }
 });
 var mainView = app.views.create('.view-main');
-app.statusbar.hide();
+//app.statusbar.show();
 var $$ = Dom7;
 $$(document).on('page:init', function (e) {
 	// Page Data contains all required information about loaded and initialized page
 	var page = e.detail;
 	var name = page.name;
 	if(name == "about"){
-		//bp.popup("Name: "+app.name+"<br>Package: "+app.id+"<br>Version: "+app.version);
-		bp.testConnection();
+		bp.popup("Name: "+app.name+"<br>Package: "+app.id+"<br>Version: "+app.version);
+		
 	}
+});
+$(document).ready(function(){
+	bp.testConnection();
 });

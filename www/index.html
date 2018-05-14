@@ -8,16 +8,22 @@
     <!-- Color theme for statusbar -->
     <meta name="theme-color" content="#2196f3">
     <!-- Your app title -->
-    <title>My App</title>
+    <title>Barrett Plumbing</title>
     <!-- Path to Framework7 Library CSS -->
     <link rel="stylesheet" href="lib/framework7/css/framework7.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7-icons.css">
+    
+    <link rel="icon" sizes="128x128" href="images/btIcon.png">
+    
     <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?1">
   </head>
   <body>
     <!-- App root element -->
     <div id="app">
+    
+    <!-- Statusbar overlay -->
+      <div class="statusbar"></div>
     
     		<div class="panel panel-left panel-reveal">
       <div class="content-block padding-5">
@@ -34,8 +40,7 @@
       </div>
     </div>
     
-      <!-- Statusbar overlay -->
-      <div class="statusbar"></div>
+      
 
       <!-- Your main view, should have "view-main" class -->
       <div class="view view-main">
@@ -56,9 +61,9 @@
           
 
           <!-- Scrollable page content -->
-          <div class="page-content padding-5">
+          <div class="page-content margin-15">
           
-            <div class="text-align-center block"><div class="preloader color-multi"></div></div>
+            
             
             <!-- Link to another page -->
             <a href="/about/">About app</a><hr>
