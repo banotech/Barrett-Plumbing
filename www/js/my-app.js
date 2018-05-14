@@ -1,7 +1,7 @@
 var app = new Framework7({
   root: '#app',
   name: 'Barrett Plumbing',
-  id: 'tech.bano.bp',
+  id: 'tech.bano.bp', 
   version: "0.1.0",
   panel: {
     swipe: 'left',
@@ -23,7 +23,7 @@ var app = new Framework7({
   }
 });
 var mainView = app.views.create('.view-main');
-app.statusbar.show();
+app.statusbar.hide();
 var $$ = Dom7;
 $$(document).on('page:init', function (e) {
 	// Page Data contains all required information about loaded and initialized page
