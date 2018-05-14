@@ -18,7 +18,7 @@ var app = new Framework7({
     iosOverlaysWebView: true,
     materialBackgroundColor: "#2196f3",
     overlay:true,
-    enabled:true,
+    enabled:false,
   },
   dialog: {
 	  title: "Barrett Plumbing"
