@@ -2,7 +2,7 @@ var app = new Framework7({
   root: '#app',
   name: 'Barrett Plumbing',
   id: 'tech.bano.bp', 
-  version: "0.1.2",
+  version: "0.1.21",
   panel: {
     swipe: 'left',
   },
