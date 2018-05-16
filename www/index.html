@@ -37,9 +37,52 @@
 		    <li><a href="#">Link 3</a></li>
 		  </ul>
 		</div>
+		<hr>
+		<a href="/about/">About app</a><hr>
+		<a href="#" onclick="bp.hardLogout()">Hard Logout</a>
       </div>
     </div>
     
+    <div class="sheet-modal login-sheet input-sheet">
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <div class="left"></div>
+        <div class="right"><a class="link sheet-close" href="#">Cancel</a></div>
+      </div>
+    </div>
+    <div class="sheet-modal-inner">
+      <div class="block">
+        <h4>Login with your credentials below:</h4>
+       	<div class="num-pad login-num-pad">
+       		<div class="row">
+       			<div class="output">
+       				XXXXX
+       			</div>
+       		</div>
+       		<div class="row">
+       			<button class="col button button-small button-round button-fill" data-number="7">7</button>
+       			<button class="col button button-small button-round button-fill" data-number="8">8</button>
+       			<button class="col button button-small button-round button-fill" data-number="9">9</button>
+       		</div>
+       		<div class="row">
+       			<button class="col button button-small button-round button-fill" data-number="4">4</button>
+       			<button class="col button button-small button-round button-fill" data-number="5">5</button>
+       			<button class="col button button-small button-round button-fill" data-number="6">6</button>
+       		</div>
+       		<div class="row">
+       			<button class="col button button-small button-round button-fill" data-number="1">1</button>
+       			<button class="col button button-small button-round button-fill" data-number="2">2</button>
+       			<button class="col button button-small button-round button-fill" data-number="3">3</button>
+       		</div>
+       		<div class="row">
+       			<button class="col button button-small button-round button-fill color-red" data-number="back"><i class="f7-icons">chevron_left</i></button>
+       			<button class="col button button-small button-round button-fill" data-number="0">0</button>
+       			<button class="col button button-small button-round button-fill color-green" data-number="done"><i class="f7-icons">check</i></button>
+       		</div>
+       	</div>
+      </div>
+    </div>
+  </div>
       
 
       <!-- Your main view, should have "view-main" class -->
@@ -66,8 +109,23 @@
             
             
             <!-- Link to another page -->
-            <a href="/about/">About app</a><hr>
-            <p><a href="#" class="panel-open">Open Left Panel</a></p>
+            <div class="logged-out">
+	            <p class="text-center">
+	          		<img class="home-img" src="images/btIcon.png" />
+	          		<br>
+	          		<h2 class="text-center">Barrett Plumbing Employee</h2>
+	          		This app is for use only by Barrett Plumbing Employees. Before accessing it, you'll need to login with the information provided to you by your supervisor.
+	          		<p class="row">
+		            	<button class="col button button-big button-raised button-fill login-button">Login to access App</button>            
+		            </p> 
+	          	</p>
+	        </div>
+	        
+	        <div class="logged-in">
+	            <p class="row ">
+	            	<button class="col button button-big button-raised button-fill" onclick="bp.hardLogout();">Logout</button>            
+	            </p>
+	        </div>          
           </div>
         </div>
       </div>

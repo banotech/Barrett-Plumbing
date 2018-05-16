@@ -10,9 +10,53 @@
    See https://github.com/apache/cordova-plugin-statusbar
 */
 
+.home-img{
+	width:35vw;
+}
+.text-center{
+	text-align:center;
+}
+.text-left{
+	text-align:left;
+}
 .statusbar-overlay {
     background: #2196f3;
     transition: 400ms;
+}
+
+.input-sheet{
+	height:70vh;
+}
+@media (max-height: 600px){
+	.input-sheet{
+		height:80vh;
+	}
+}
+@media (max-height: 500px){
+	.input-sheet{
+		height:100vh;
+	}
+}
+
+.login-sheet .block{
+	overflow-y:auto;
+}
+.num-pad{
+	text-align:center;
+}
+.num-pad .row .output{
+	text-align:center;
+	font-weight:bold;
+	font-size:36px;
+	width:100%;
+}
+.num-pad .row{
+	margin-bottom:10px;
+}
+.num-pad .row .button{
+	font-size:30px;
+	padding:5px;
+	height:40px;
 }
 
 .padding-5{

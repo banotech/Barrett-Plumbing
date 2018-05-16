@@ -2,7 +2,7 @@ var app = new Framework7({
   root: '#app',
   name: 'Barrett Plumbing',
   id: 'tech.bano.bp', 
-  version: "0.1.0",
+  version: "0.1.2",
   panel: {
     swipe: 'left',
   },
@@ -31,6 +31,7 @@ $$(document).on('page:init', function (e) {
 	// Page Data contains all required information about loaded and initialized page
 	var page = e.detail;
 	var name = page.name;
+	bp.update();
 	if(name == "about"){
 		bp.popup("Name: "+app.name+"<br>Package: "+app.id+"<br>Version: "+app.version);
 		
@@ -38,4 +39,5 @@ $$(document).on('page:init', function (e) {
 });
 $(document).ready(function(){
 	bp.testConnection();
+	bp.update();
 });
