@@ -36,6 +36,12 @@
 	.input-sheet{
 		height:100vh;
 	}
+	.num-pad .row .output{
+		font-size:24px;
+	}
+	.hide-500{
+		display:none;
+	}
 }
 
 .login-sheet .block{

@@ -25,6 +25,14 @@ var bp = {
 			$(".logged-out").show();
 		}
 	},
+	setTheme: function(theme){
+		window.localStorage.setItem("theme",theme);
+		location.reload();
+	},
+	setDayNight: function(dn){
+		window.localStorage.setItem("dayNight",dn);
+		location.reload();
+	},
 	toast: function(text){
 		var toast = app.toast.create({
 		  text: text+"",
@@ -82,12 +90,21 @@ var bp = {
 		bp.user.lName = window.localStorage.getItem("lName");
 		bp.user.rank = window.localStorage.getItem("rank");
 		if(bp.user.id != null){
+			app.request.get("https://bano.tech/bp-app/bp.php?function=validateId&id="+bp.user.id,function(data){
+				//console.log(data);
+				if(data !== "good"){
+					bp.hardLogout();
+					bp.popup("There server rejected your login. You have been logged out. If the issue continues, contact your supervisor.");
+				}
+			});
 			bp.loggedIn = true;
 		}
-		console.log("Logged In? "+bp.loggedIn);
+		//console.log("Logged In? "+bp.loggedIn);
 	},
 	hardLogout: function(){
+		var theme = window.localStorage.getItem("theme");
 		window.localStorage.clear();
+		window.localStorage.setItem("theme",theme);
 		bp.loggedIn = false;
 		bp.toast("Hard logout complete!");
 		bp.update();
@@ -129,7 +146,7 @@ var bp = {
 	testConnection(){
 		bp.startLoad();
 		app.request.get("https://bano.tech/bp-app/bp.php?function=test",function(data){
-			console.log(data);
+			//console.log(data);
 			if(data == "GOOD"){
 				bp.endLoad();
 			}else{
