@@ -1,4 +1,4 @@
-var apiLevel = "23";
+var apiLevel = "26";
 var app;
 function setupApp(){
 	var prefTheme = "md";
@@ -8,7 +8,7 @@ function setupApp(){
 		  root: '#app',
 		  name: 'Barrett Plumbing',
 		  id: 'tech.bano.bp', 
-		  version: "0.1.3",
+		  version: "0.1.31",
 		  panel: {
 		    swipe: 'left',
 		  },
