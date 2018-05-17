@@ -1,4 +1,4 @@
-var apiLevel = "26";
+var apiLevel = "14";
 var app;
 function setupApp(){
 	var prefTheme = "md";
@@ -8,7 +8,7 @@ function setupApp(){
 		  root: '#app',
 		  name: 'Barrett Plumbing',
 		  id: 'tech.bano.bp', 
-		  version: "0.1.31",
+		  version: "0.1.31-14",
 		  panel: {
 		    swipe: 'left',
 		  },
@@ -49,7 +49,10 @@ function checkDayNight(){
 		$(".page-content").css("color","white");
 		$(".panel").css("background-color","#333");
 		$(".panel").css("color","white");
-		$(".page").addClass("color-theme-gray")
+		$(".page").addClass("color-theme-gray");
+		if(window.localStorage.getItem("theme") == "ios"){
+			$(".panel .list").css("color","#333");
+		}
 	}
 }
 setupApp();
