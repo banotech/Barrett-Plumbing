@@ -154,5 +154,38 @@ var bp = {
 				bp.popup("There was an error connecting to the servers. Please check your internet connection and try again later.");
 			}
 		});
+	},
+	_punches: [],
+	_openPunch: undefined,
+	punchInit(){
+		bp.startLoad();
+		bp._punches = [];
+		bp._openPunch = undefined;
+		app.request.get("https://bano.tech/bp-app/bp.php?function=getPunches&id="+bp.user.id,function(data){
+			data = JSON.parse(data);
+			//console.log(data)
+			if(data.status == "good"){
+				bp.endLoad();
+				var i = data.numPunches;
+				for(var x = 0; x < i; x++){
+					var p = data.punches[x];
+					if(p.closed == "no")
+						bp._openPunch = p;
+					bp._punches.push(p);
+					//console.log(data.punches[x]);
+				}
+				bp.printPunches();
+			}else{
+				bp.endLoad();
+			}
+		});
+	},
+	printPunches: function(){
+		if(bp._openPunch !== undefined){
+			$(".active-punch").html("Your open punch"+bp._openPunch);
+		}
+		if(bp._punches.length > 0){
+			$(".historical-punches").html("Your historical punches: "+bp._punches);
+		}
 	}
 }

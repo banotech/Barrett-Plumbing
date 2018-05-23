@@ -8,7 +8,7 @@ function setupApp(){
 		  root: '#app',
 		  name: 'Barrett Plumbing',
 		  id: 'tech.bano.bp', 
-		  version: "0.1.32",
+		  version: "0.1.4",
 		  panel: {
 		    swipe: 'left',
 		  },
@@ -19,9 +19,24 @@ function setupApp(){
 			      name: "about"
 			    },
 			    {
-			        path: '/settings/',
+			    	path: '/settings/',
 			        url: 'settings.html',
 			        name: "settings"
+			      },
+			      {
+			    	path: '/punch/',
+			        url: 'punch.html',
+			        name: "punch"
+			      },
+			      {
+			      	path: '/inventory/',
+			        url: 'inventory.html',
+			        name: "inventory"
+			      },
+			      {
+			      	path: '/admin/',
+			        url: 'admin.html',
+			        name: "admin"
 			      },
 		  ],
 		  theme: prefTheme,
@@ -33,7 +48,8 @@ function setupApp(){
 		  },
 		  dialog: {
 			  title: "Barrett Plumbing"
-		  }
+		  },
+		  pushState: true
 		});
 	checkDayNight();
 }
@@ -53,6 +69,8 @@ function checkDayNight(){
 		if(window.localStorage.getItem("theme") == "ios"){
 			$(".panel .list").css("color","#333");
 		}
+		$(".input-sheet").css("background-color","#333");
+		$(".input-sheet").css("color","white");
 	}
 }
 setupApp();
@@ -72,8 +90,13 @@ $$(document).on('page:init', function (e) {
     	$(".app-id").html(app.id);
     	$(".app-api").html(apiLevel);
 	}
+	if(name == "punch"){
+		bp.punchInit();
+		console.log("Punch init...");
+	}
 });
 $(document).ready(function(){
 	bp.testConnection();
 	bp.update();
+	checkDayNight();
 });
