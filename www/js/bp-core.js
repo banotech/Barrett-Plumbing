@@ -323,7 +323,7 @@ getPunchInput: function(doAfter,openPunchId){
 			minutes = "0"+minutes;
 		}
 		//console.log(adjustedHour+":"+date.getMinutes()+" "+amPM);
-		app.picker.destroy();
+		app.picker.destroy("#demo-picker-date");
 		var pickerDescribe = app.picker.create({
 			containerEl: '#demo-picker-date-container',
 			  inputEl: '#demo-picker-date',
@@ -382,7 +382,7 @@ getNewPunchInput: function(doAfter,openPunchId){
 			minutes = "0"+minutes;
 		}
 		//console.log(adjustedHour+":"+date.getMinutes()+" "+amPM);
-		app.picker.destroy();
+		app.picker.destroy("#demo-picker-date-new");
 		var pickerDescribe = app.picker.create({
 			containerEl: '#demo-picker-date-container-new',
 			  inputEl: '#demo-picker-date-new',
@@ -419,9 +419,9 @@ getNewPunchInput: function(doAfter,openPunchId){
 		var unitAutocomplete;
 		app.autocomplete.destroy();
 		var propertyAutocomplete= app.autocomplete.create({
-			  openIn: 'popup', //open in page
-			  openerEl: '#property-autocomplete', //link that opens autocomplete
-			  closeOnSelect: true, //go back after we select something
+			  openIn: 'dropdown', //open in page
+			  inputEl: '#property-autocomplete', //link that opens autocomplete
+			  expandInput: true,
 			  source: function (query, render) {
 				  var results = [];
 				    // Find matched items
@@ -430,24 +430,13 @@ getNewPunchInput: function(doAfter,openPunchId){
 				    }
 				    // Render items by passing array with result items
 				    render(results);
-				  },
-			  on: {
-				opened: function(){
-					
-				},
-			    change: function (value) {
-			      // Add item text value to item-after
-			      $$('#property-autocomplete').find('.item-after').text(value[0]);
-			      // Add item value to input value
-			      $$('#property-autocomplete').find('input').val(value[0]);
-			    },
-			  },
+				  }
 			});
 		propertyAutocomplete.on("open",function(ret){
-			app.sheet.close(".punch-input-new");
+			//app.sheet.close(".punch-input-new");
 		});
 		propertyAutocomplete.on("close",function(ret){
-			app.sheet.open(".punch-input-new");
+			//app.sheet.open(".punch-input-new");
 			var propName = ret.value+"";
 			var ar = propName.split("ID:");
 			var propId = ar[1];
@@ -459,9 +448,10 @@ getNewPunchInput: function(doAfter,openPunchId){
 				}
 			}
 			unitAutocomplete = app.autocomplete.create({
-				  openIn: 'popup', //open in page
-				  openerEl: '#unit-autocomplete', //link that opens autocomplete
+				  openIn: 'dropdown', //open in page
+				  inputEl: '#unit-autocomplete', //link that opens autocomplete
 				  closeOnSelect: true, //go back after we select something
+				  expandInput: true,
 				  source: function (query, render) {
 					  var results = [];
 					    // Find matched items
@@ -470,25 +460,9 @@ getNewPunchInput: function(doAfter,openPunchId){
 					    }
 					    // Render items by passing array with result items
 					    render(results);
-					  },
-				  on: {
-					opened: function(){
-						
-					},
-				    change: function (value) {
-				      // Add item text value to item-after
-				      $$('#unit-autocomplete').find('.item-after').text(value[0]);
-				      // Add item value to input value
-				      $$('#unit-autocomplete').find('input').val(value[0]);
-				    },
-				  },
+					  }
 				});
-			unitAutocomplete.on("open",function(ret){
-				app.sheet.close(".punch-input-new");
-			});
-			unitAutocomplete.on("close",function(ret){
-				app.sheet.open(".punch-input-new");
-			});
+
 			
 		});
 		

@@ -1,14 +1,14 @@
 var apiLevel = "m21+t26+";
 var app;
 function setupApp(){
-	var prefTheme = "md";
+	var prefTheme = "ios";
 	if(window.localStorage.getItem("theme") == "ios")
 		prefTheme = "ios";
 	app = new Framework7({
 		  root: '#app',
 		  name: 'Barrett Plumbing',
 		  id: 'tech.bano.bp', 
-		  version: "141",
+		  version: "142",
 		  panel: {
 		    swipe: 'left',
 		  },
