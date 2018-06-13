@@ -1,6 +1,145 @@
 
 
-<div class="page" data-name="punch">
+<div class="page" data-name="punch" id="punch-view">
+
+<div class="sheet-modal punch-input  full-sheet">
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <div class="left"></div>
+        <div class="right"><a class="link sheet-close" href="#">Cancel</a></div>
+      </div>
+    </div>
+    <div class="sheet-modal-inner" >
+      <div class="page-content">
+		<h3 class="color-red">You need to clock out!</h3>
+       	<div class="block-title">Date of Punch</div>
+			<div class="list no-hairlines-md">
+			  <ul>
+			    <li>
+			      <div class="item-content item-input">
+			        <div class="item-inner">
+			          <div class="item-input-wrap">
+			            <input type="text" placeholder="Tap to set Date" readonly="readonly" id="demo-calendar-default"/>
+			          </div>
+			        </div>
+			      </div>
+			    </li>
+			  </ul>
+			</div>
+			
+			<div class="block-title">Inline Picker / Date-time</div>
+			<div class="list no-margin">
+			  <ul>
+			    <li>
+			      <div class="item-content item-input">
+			        <div class="item-inner">
+			          <div class="item-input-wrap">
+			            <input type="text" placeholder="Date Time" readonly="readonly" id="demo-picker-date"/>
+			          </div>
+			        </div>
+			      </div>
+			    </li>
+			  </ul>
+			</div>
+			<div class="block block-strong no-padding no-margin margin-bottom">
+			  <div id="demo-picker-date-container"></div>
+			</div>
+       		<div class="row">
+       			<div class="col"></div>
+       			<div class="col"><button class="col button button-fill color-green confirm-punch">Confirm</button></div>
+       		</div>
+       	
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="sheet-modal punch-input-new  full-sheet">
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <div class="left"></div>
+        <div class="right"><a class="link sheet-close" href="#">Cancel</a></div>
+      </div>
+    </div>
+    <div class="sheet-modal-inner">
+      <div class="page-content" style="padding-bottom:50px;">
+      
+      
+      
+      <div class="list">
+		  <div class="block-header">Property</div>
+		  <ul>
+		    <li>
+		      <a class="item-link item-content" href="#" id="property-autocomplete">
+		        <input type="hidden">
+		        <div class="item-inner">
+		          <div class="item-title">Property</div>
+		          <div class="item-after"></div>
+		        </div>
+		      </a>
+		    </li>
+		  </ul>
+		</div>
+      
+
+		
+		<div class="list">
+		  <div class="block-header">Unit</div>
+		  <ul>
+		    <li>
+		      <a class="item-link item-content" href="#" id="unit-autocomplete">
+		        <input type="hidden">
+		        <div class="item-inner">
+		          <div class="item-title">Unit</div>
+		          <div class="item-after"></div>
+		        </div>
+		      </a>
+		    </li>
+		  </ul>
+		</div>
+
+       	
+       	
+       	<div class="block-title">Date of Punch</div>
+			<div class="list no-hairlines-md">
+			  <ul>
+			    <li>
+			      <div class="item-content item-input">
+			        <div class="item-inner">
+			          <div class="item-input-wrap">
+			            <input type="text" placeholder="Tap to set Date" readonly="readonly" id="demo-calendar-default-new"/>
+			          </div>
+			        </div>
+			      </div>
+			    </li>
+			  </ul>
+			</div>
+			
+			<div class="block-title">Inline Picker / Date-time</div>
+			<div class="list no-margin">
+			  <ul>
+			    <li>
+			      <div class="item-content item-input">
+			        <div class="item-inner">
+			          <div class="item-input-wrap">
+			            <input type="text" placeholder="Date Time" readonly="readonly" id="demo-picker-date-new"/>
+			          </div>
+			        </div>
+			      </div>
+			    </li>
+			  </ul>
+			</div>
+			<div class="block block-strong no-padding no-margin margin-bottom">
+			  <div id="demo-picker-date-container-new"></div>
+			</div>
+       		<div class="row">
+       			<div class="col"></div>
+       			<div class="col"><button class="col button button-fill color-green confirm-punch-new">Confirm</button></div>
+       		</div>
+       	
+      </div>
+    </div>
+  </div>
 <div class="navbar">
                 <div class="navbar">
 			  <div class="navbar-inner sliding">
@@ -18,14 +157,15 @@
 			</div>
 			
             </div>
-  <div class="page-content padding-5">
-            <div class="content-block text-center">
-            
-            	<div class="fab fab-right-bottom new-punch">
+            <div class="fab fab-right-bottom new-punch">
 				    <a href="#">
 				      <i class="icon f7-icons">add</i>
 				    </a>
 				  </div>
+  <div class="page-content padding-5">
+            <div class="content-block text-center">
+            
+            	
 			  
             	<h2>Current Punch</h2>    
 	            
@@ -40,10 +180,12 @@
 	            
 	            <div class="block historical-punches">
 	            	<h4>You don't have an past punches.</h4>
-	            
+	            	
 	            </div>
 	            
+	           
+		</div>
 	            
-            </div>
+	            
   </div>
 </div>

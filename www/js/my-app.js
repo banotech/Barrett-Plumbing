@@ -8,9 +8,12 @@ function setupApp(){
 		  root: '#app',
 		  name: 'Barrett Plumbing',
 		  id: 'tech.bano.bp', 
-		  version: "140",
+		  version: "141",
 		  panel: {
 		    swipe: 'left',
+		  },
+		  sheet: {
+			  
 		  },
 		  routes: [
 			  {

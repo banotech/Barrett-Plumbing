@@ -27,6 +27,10 @@
 .input-sheet{
 	height:70vh;
 }
+.full-sheet{
+	min-height:100vh;
+	
+}
 @media (max-height: 600px){
 	.input-sheet{
 		height:80vh;
