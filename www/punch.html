@@ -5,13 +5,12 @@
 <div class="sheet-modal punch-input  full-sheet">
     <div class="toolbar">
       <div class="toolbar-inner">
-        <div class="left"></div>
+        <div class="left"><i class="f7-icons">alarm</i> Punch Out</div>
         <div class="right"><a class="link sheet-close" href="#">Cancel</a></div>
       </div>
     </div>
     <div class="sheet-modal-inner" >
       <div class="page-content">
-		<h3 class="color-red">You need to clock out!</h3>
        	<div class="block-title">Date of Punch</div>
 			<div class="list no-hairlines-md">
 			  <ul>
@@ -57,13 +56,12 @@
   <div class="sheet-modal punch-input-new  full-sheet">
     <div class="toolbar">
       <div class="toolbar-inner">
-        <div class="left"></div>
+        <div class="left"><i class="f7-icons">alarm</i> Punch In</div>
         <div class="right"><a class="link sheet-close" href="#">Cancel</a></div>
       </div>
     </div>
     <div class="sheet-modal-inner">
       <div class="page-content" style="padding-bottom:50px;">
-      
       
       <!-- 
       <div class="list">
@@ -113,22 +111,76 @@
 		  </ul>
 		</div>
 		-->
-		
-		<div class="list no-hairlines-md">
-		  <div class="block-header">Unit</div>
-		  <ul>
-		    <li class="item-content item-input">
-		      <div class="item-inner">
-		        <div class="item-title item-label">Select the unit you are working in</div>
-		        <div class="item-input-wrap">
-		          <input id="unit-autocomplete" type="text" placeholder="Tap to begin...">
-		        </div>
-		      </div>
-		    </li>
-		  </ul>
+		<h3 class="text-center">Specific Location</h3>
+		<div class="segmented segmented-round">
+		    <button class="button button-round button-outline punch-select button-active" id="punch-select-unit">Unit</button>
+		    <button class="button button-round button-outline punch-select " id="punch-select-building">Building</button>
+		    <button class="button button-round button-outline punch-select " id="punch-select-other">Other</button>
 		</div>
+		
+		<div class="punch-type-unit">
+			<div class="list no-hairlines-md">
+			  <div class="block-header">Unit</div>
+			  <ul>
+			    <li class="item-content item-input">
+			      <div class="item-inner">
+			        <div class="item-title item-label">Select the unit you are working in</div>
+			        <div class="item-input-wrap">
+			          <input id="unit-autocomplete" type="text" placeholder="Tap to begin...">
+			        </div>
+			      </div>
+			    </li>
+			  </ul>
+			</div>
+       	</div>
+       	
+       	<div class="punch-type-building">
+			<div class="list no-hairlines-md">
+			  <div class="block-header">Building</div>
+			  <ul>
+			    <li class="item-content item-input">
+			      <div class="item-inner">
+			        <div class="item-title item-label">Select the building you are working in</div>
+			        <div class="item-input-wrap">
+			          <input id="building-autocomplete" type="text" placeholder="Tap to begin...">
+			        </div>
+			      </div>
+			    </li>
+			  </ul>
+			</div>
+			<div class="list no-hairlines-md">
+			  <div class="block-header">Specific Location</div>
+			  <ul>
+			    <li class="item-content item-input">
+			      <div class="item-inner">
+			        <div class="item-title item-label">Type the specific place you are working</div>
+			        <div class="item-input-wrap">
+			          <input id="building-comment" type="text" placeholder="1st Floor, Mech Room, Cooridor 1, ect.">
+			        </div>
+			      </div>
+			    </li>
+			  </ul>
+			</div>
+       	</div>
+       	
+       	<div class="punch-type-other">
+			<div class="list no-hairlines-md">
+			  <div class="block-header">Other Location</div>
+			  <ul>
+			    <li class="item-content item-input">
+			      <div class="item-inner">
+			        <div class="item-title item-label">Type the specific place you are working</div>
+			        <div class="item-input-wrap">
+			          <input id="other-comment" type="text" placeholder="Truck, Office, ect.">
+			        </div>
+			      </div>
+			    </li>
+			  </ul>
+			</div>
+       	</div>
        	
        	
+       	<hr>
        	<div class="block-title">Date of Punch</div>
 			<div class="list no-hairlines-md">
 			  <ul>

@@ -8,7 +8,7 @@ function setupApp(){
 		  root: '#app',
 		  name: 'Barrett Plumbing',
 		  id: 'tech.bano.bp', 
-		  version: "142",
+		  version: "143",
 		  panel: {
 		    swipe: 'left',
 		  },
@@ -95,6 +95,7 @@ $$(document).on('page:init', function (e) {
 	}
 	if(name == "punch"){
 		bp.punchInit();
+		
 		console.log("Punch init...");
 	}
 });

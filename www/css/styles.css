@@ -27,9 +27,15 @@
 .input-sheet{
 	height:70vh;
 }
+.half-sheet{
+	min-height:50vh;
+}
 .full-sheet{
 	min-height:100vh;
 	
+}
+.punch-table tr{
+	border-bottom:1px solid gray;
 }
 @media (max-height: 600px){
 	.input-sheet{
