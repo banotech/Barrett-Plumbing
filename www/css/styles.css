@@ -23,7 +23,13 @@
     background: #2196f3;
     transition: 400ms;
 }
-
+.night-sheet .sheet-modal-inner{
+	color:white;
+	background-color:#333;
+}
+.night-text-white{
+	color:white;
+}
 .input-sheet{
 	height:70vh;
 }

@@ -104,8 +104,10 @@ var bp = {
 	},
 	hardLogout: function(){
 		var theme = window.localStorage.getItem("theme");
+		var dn = window.localStorage.getItem("dayNight");
 		window.localStorage.clear();
 		window.localStorage.setItem("theme",theme);
+		window.localStorage.setItem("dayNight",dn);
 		bp.loggedIn = false;
 		bp.toast("Hard logout complete!");
 		bp.update();
@@ -683,7 +685,11 @@ getNewPunchInput: function(doAfter,openPunchId){
 				    </div>
 			 */
 			var output = "Some information is only viewable on a larger screen.";
-			output += '<div class="data-table"><table class="punch-table"><thead><tr><th class="numeric-cell">Start Time</th><th class="numeric-cell">End Time</th><th class="label-cell">Hours</th><th></th></tr></thead><tbody>';
+			var dn;
+			if(window.localStorage.getItem("dayNight") == "night"){
+				dn = "night-text-white";
+			}
+			output += '<div class="data-table"><table class="punch-table"><thead><tr><th class="numeric-cell "><span class="'+dn+'">Start Time</span></th><th class="numeric-cell"><span class="'+dn+'">End Time</span></th><th class="label-cell"><span class="'+dn+'">Hours</span></th><th></th></tr></thead><tbody>';
 			var sheets = [];
 			for(x = bp._punches.length-1; x >= 0 ; x--){
 				var punch = bp._punches[x];
@@ -710,8 +716,12 @@ getNewPunchInput: function(doAfter,openPunchId){
 					var building = bp.getBuilding(punch.building);
 					var property = bp.getProperty(punch.property);
 					var comment = punch.comment;
+					var dn ="";
+					if(window.localStorage.getItem("dayNight") == "night"){
+						dn = "night-sheet";
+					}
 					var dynamicSheet = app.sheet.create({
-						  content: '<div class="sheet-modal half-sheet">'+
+						  content: '<div class="sheet-modal half-sheet '+dn+'">'+
 						              '<div class="toolbar">'+
 						                '<div class="toolbar-inner">'+
 						                  '<div class="left"><i class="f7-icons">info</i> Punch Information</div>'+

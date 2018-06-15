@@ -1,14 +1,14 @@
 var apiLevel = "m21+t26+";
 var app;
 function setupApp(){
-	var prefTheme = "ios";
+	var prefTheme = "md";
 	if(window.localStorage.getItem("theme") == "ios")
 		prefTheme = "ios";
 	app = new Framework7({
 		  root: '#app',
 		  name: 'Barrett Plumbing',
 		  id: 'tech.bano.bp', 
-		  version: "143",
+		  version: "144",
 		  panel: {
 		    swipe: 'left',
 		  },
@@ -47,7 +47,7 @@ function setupApp(){
 		    iosOverlaysWebView: true,
 		    materialBackgroundColor: "#2196f3",
 		    overlay:true,
-		    enabled:false,
+		    enabled:true,
 		  },
 		  dialog: {
 			  title: "Barrett Plumbing"
@@ -74,6 +74,8 @@ function checkDayNight(){
 		}
 		$(".input-sheet").css("background-color","#333");
 		$(".input-sheet").css("color","white");
+		$(".sheet").css("background-color","#333");
+		$(".sheet").css("color","white");
 	}
 }
 setupApp();
