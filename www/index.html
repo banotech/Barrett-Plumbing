@@ -29,7 +29,13 @@
       <div class="content-block padding-5">
         <!-- Clicking on link with "panel-close" class will close panel -->
        	<p style="text-align:right;padding-right:10px;"><a href="#" class="panel-close"><i class="f7-icons">close</i></a></p>
-       	<h3 style="text-align:center;">Barrett Plumbing</h3>
+       	<div style="text-align:center;" class="block logged-in">
+       		<i class="f7-icons">person_fill</i><br>
+       		<span class="bp-user-fName"></span> <span class="bp-user-lName"></span><br>
+       		<a href="/profile/" class="panel-close button button-small button-outline">Edit Profile</a>
+       		
+       	</div>
+       	<h3 class="logged-out" style="text-align:center;">Barrett Plumbing Employee</h3>
         <div class="list links-list">
 		  <ul>
 		    <li><a href="." class="panel-close"><i class="f7-icons">home_fill</i> Home</a></li>
@@ -52,7 +58,7 @@
     </div>
     <div class="sheet-modal-inner">
       <div class="page-content">
-        <h4 class="hide-500">Login with your credentials below:</h4>
+        <h4 class="hide-500 login-text">Login with your credentials below:</h4>
        	<div class="num-pad login-num-pad">
        		<div class="row">
        			<div class="output">
@@ -137,5 +143,7 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
     <script type="text/javascript" src="js/bp-core.js"></script>
+    <script type="text/javascript" src="js/bp-punch.js"></script>  
+    <script type="text/javascript" src="js/bp-admin.js"></script>
      </body>
 </html>

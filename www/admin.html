@@ -1,6 +1,6 @@
 
 
-<div class="page" data-name="about">
+<div class="page" data-name="admin">
 <div class="navbar">
                 <div class="navbar">
 			  <div class="navbar-inner sliding">
@@ -17,10 +17,51 @@
 			  </div>
 			</div>
             </div>
+       <div class="toolbar tabbar">
+    <div class="toolbar-inner">
+      <a href="#tab-1" class="tab-link tab-link-active bp-admin-approve">Time</a>
+      <a href="#tab-2" class="tab-link bp-admin-approve">Reports</a>
+      <a href="#tab-3" class="tab-link bp-admin-approve">Users</a>
+      <a href="#tab-4" class="tab-link">Other</a>
+    </div>
+  </div>
+  <div class="tabs-animated-wrap">
+    <div class="tabs">
+      <div id="tab-1" class="page-content tab tab-active bp-admin-approve">
+        <div class="block">
+          <h2>Time Management</h2>
+          ...
+        </div>
+      </div>
+      <div id="tab-2" class="page-content tab bp-admin-approve">
+        <div class="block">
+          <h2>Reporting</h2>
+          ...
+        </div>
+      </div>
+      <div id="tab-3" class="page-content tab bp-admin-approve">
+        <div class="block">
+          <h2>User Management</h2>
+          ...
+        </div>
+      </div>
+      <div id="tab-4" class="page-content tab">
+        <div class="block">
+        	<div class="bp-admin-deny">
+	          <h2>Verify Your Admin Rights</h2>
+	          <a class="button button-big button-fill" onclick="bp.verifyAdmin()">Verify</a>
+	        </div>
+	        <div class="bp-admin-approve">
+	        	<p>Revoke your admin rights<br><small>Note: This happens automatically when the app reopens.</small></p>
+	          <a class="button button-big button-fill" onclick="bp.revokeAdmin()">Revoke Admin</a>
+	        </div>
+        </div>
+       </div>
   <div class="page-content padding-5">
             <div class="content-block text-center">
-            	<h2>Admin</h2>    
-	            </p>
+            	<div class="bp-admin-deny">
+            		<h3 style="color:red;">You are not authorized to access admin functions</h3>
+            	</div>
             </div>
   </div>
 </div>

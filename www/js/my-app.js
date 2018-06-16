@@ -8,7 +8,7 @@ function setupApp(){
 		  root: '#app',
 		  name: 'Barrett Plumbing',
 		  id: 'tech.bano.bp', 
-		  version: "144",
+		  version: "146",
 		  panel: {
 		    swipe: 'left',
 		  },
@@ -41,13 +41,23 @@ function setupApp(){
 			        url: 'admin.html',
 			        name: "admin"
 			      },
+			      {
+			      	path: '/profile/',
+			        url: 'profile.html',
+			        name: "profile"
+			      },
+			      {
+			      	path: '/preRelease/',
+			        url: 'preRelease.html',
+			        name: "preRelease"
+			      },
 		  ],
 		  theme: prefTheme,
 		  statusbar: {
 		    iosOverlaysWebView: true,
 		    materialBackgroundColor: "#2196f3",
-		    overlay:true,
-		    enabled:true,
+		    overlay:false,
+		    enabled:false,
 		  },
 		  dialog: {
 			  title: "Barrett Plumbing"
@@ -64,6 +74,7 @@ function checkDayNight(){
 				color:white;
 			}
 		 */
+		$("body").addClass("color-theme-gray");
 		$(".page-content").css("background-color","#333");
 		$(".page-content").css("color","white");
 		$(".panel").css("background-color","#333");
@@ -76,6 +87,10 @@ function checkDayNight(){
 		$(".input-sheet").css("color","white");
 		$(".sheet").css("background-color","#333");
 		$(".sheet").css("color","white");
+	}else{
+		if(window.localStorage.getItem("colorTheme") !== undefined){
+			$("body").removeClass().addClass("color-theme-"+window.localStorage.getItem("colorTheme"));
+		}
 	}
 }
 setupApp();
@@ -86,10 +101,11 @@ $$(document).on('page:init', function (e) {
 	// Page Data contains all required information about loaded and initialized page
 	var page = e.detail;
 	var name = page.name;
+	console.log(name);
 	bp.update();
 
 	checkDayNight();
-	if(name == "about"){
+	if(name == "about" || name == "preRelease"){
 		//bp.popup("Name: "+app.name+"<br>Package: "+app.id+"<br>Version: "+app.version);
 		$(".app-version").html(app.version);
     	$(".app-id").html(app.id);
@@ -97,12 +113,20 @@ $$(document).on('page:init', function (e) {
 	}
 	if(name == "punch"){
 		bp.punchInit();
-		
-		console.log("Punch init...");
+	}
+	if(name == "settings"){
+		bp.setupSettings();
+	}
+	if(name == "admin"){
+		bp.verifyAdmin();
+		console.log("Admin");
 	}
 });
 $(document).ready(function(){
 	bp.testConnection();
+	window.localStorage.setItem("admin","no");
 	bp.update();
 	checkDayNight();
+	addSubsystem("Punch Control",punchControl);
+	addSubsystem("Administration",admin);
 });

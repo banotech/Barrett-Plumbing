@@ -19,18 +19,32 @@
             </div>
   <div class="page-content padding-5">
             <div class="content-block">
-            	<h2>Settings</h2>
             	<h4>Change app theme: <br><sub>Default: Android (Refreshes app on change)</sub></h4>
-               	<p class="row ">
-	            	<button class="col button button-big button-raised button-fill color-green" onclick="bp.setTheme('md')">Android</button> 
-	            	<button class="col button button-big button-raised button-fill color-red" onclick="bp.setTheme('ios')">iOS</button>            
+               	<p class="segmented">
+	            	<button class="button button-big button-raised button-outline theme-select" id="theme-select-md" onclick="bp.setTheme('md')">Android</button> 
+	            	<button class="button button-big button-raised button-outline theme-select" id="theme-select-ios" onclick="bp.setTheme('ios')">iOS</button>            
 	            </p>
 	            <hr>
 	            <h4>Set day/night mode: <br><sub>Default: Day (Refreshes app on change)</sub></h4>
-               	<p class="row ">
-	            	<button class="col button button-big button-raised button-fill color-black" onclick="bp.setDayNight('night')">Night</button> 
-	            	<button class="col button button-big button-raised button-fill color-blue" onclick="bp.setDayNight('day')">Day</button>            
+               	<p class="segmented">
+               		<button class="button button-big button-raised button-outline day-night-select" id="day-night-select-day" onclick="bp.setDayNight('day')">Day</button>     
+	            	<button class="button button-big button-raised button-outline day-night-select" id="day-night-select-night" onclick="bp.setDayNight('night')">Night</button>            
 	            </p>
+	            <h4>Set color theme: <br><sub>Note: Night mode will disable color themes.</sub></h4>
+	            <p class="segmented">
+				    <button class="button button-outline color-blue color-theme-select" id="color-theme-select-blue" onclick="bp.setColorTheme('blue')">None</button>
+				    <button class="button button-outline color-green color-theme-select" id="color-theme-select-green" onclick="bp.setColorTheme('green')">Green</button>
+				    <button class="button button-outline color-gray color-theme-select" id="color-theme-select-gray" onclick="bp.setColorTheme('gray')">Gray</button>
+				  </p>
+				  <p class="segmented">
+				  	<button class="button button-outline color-red color-theme-select" id="color-theme-select-red" onclick="bp.setColorTheme('red')">Red</button>
+				    <button class="button button-outline color-orange color-theme-select" id="color-theme-select-orange" onclick="bp.setColorTheme('orange')">Orange</button>
+				    <button class="button button-outline color-pink color-theme-select" id="color-theme-select-pink" onclick="bp.setColorTheme('pink')">Pink</button>
+				  </p>
+				  <hr>
+				  <br>
+				  <a href="/preRelease/" class="button button-big button-fill color-red">Pre-Release Information</a>
+				  
             </div>
   </div>
 </div>
