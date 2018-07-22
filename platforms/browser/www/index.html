@@ -8,34 +8,88 @@
     <!-- Color theme for statusbar -->
     <meta name="theme-color" content="#2196f3">
     <!-- Your app title -->
-    <title>My App</title>
+    <title>Barrett Plumbing</title>
     <!-- Path to Framework7 Library CSS -->
     <link rel="stylesheet" href="lib/framework7/css/framework7.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7-icons.css">
+    
+    <link rel="icon" sizes="128x128" href="images/btIcon.png">
+    
     <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?1">
   </head>
   <body>
     <!-- App root element -->
     <div id="app">
     
+    <!-- Statusbar overlay -->
+      <div class="statusbar"></div>
+    
     		<div class="panel panel-left panel-reveal">
       <div class="content-block padding-5">
         <!-- Clicking on link with "panel-close" class will close panel -->
        	<p style="text-align:right;padding-right:10px;"><a href="#" class="panel-close"><i class="f7-icons">close</i></a></p>
-       	<h3 style="text-align:center;">Barrett Plumbing</h3>
+       	<div style="text-align:center;" class="block logged-in">
+       		<i class="f7-icons">person_fill</i><br>
+       		<span class="bp-user-fName"></span> <span class="bp-user-lName"></span><br>
+       		<a href="/profile/" class="panel-close button button-small button-outline">Edit Profile</a>
+       		
+       	</div>
+       	<h3 class="logged-out" style="text-align:center;">Barrett Plumbing Employee</h3>
         <div class="list links-list">
 		  <ul>
-		    <li><a href="#">Link 1</a></li>
-		    <li><a href="#">Link 2</a></li>
-		    <li><a href="#">Link 3</a></li>
+		    <li><a href="." class="panel-close"><i class="f7-icons">home_fill</i> Home</a></li>
+		    <li><a href="/punch/" class="panel-close logged-in"><i class="f7-icons">time_fill</i> Punch In/Out</a></li>
+		    <li><a href="/inventory/" class="panel-close logged-in"><i class="f7-icons">box_fill</i> Inventory</a></li>
+		    <li><a href="/settings/" class="panel-close logged-in"><i class="f7-icons">settings_fill</i> Settings</a></li>
+		    <li><a href="/admin/" class="panel-close logged-in"><i class="f7-icons">info_fill</i> Admin</a></li>
 		  </ul>
 		</div>
+		<a href="/about/" class="panel-close">About app</a><br><br>
       </div>
     </div>
     
-      <!-- Statusbar overlay -->
-      <div class="statusbar"></div>
+    <div class="sheet-modal login-sheet input-sheet">
+    <div class="toolbar">
+      <div class="toolbar-inner">
+        <div class="left"></div>
+        <div class="right"><a class="link sheet-close" href="#">Cancel</a></div>
+      </div>
+    </div>
+    <div class="sheet-modal-inner">
+      <div class="page-content">
+        <h4 class="hide-500 login-text">Login with your credentials below:</h4>
+       	<div class="num-pad login-num-pad">
+       		<div class="row">
+       			<div class="output">
+       				XXXXX
+       			</div>
+       		</div>
+       		<div class="row">
+       			<button class="col button button-small button-round button-fill" data-number="7">7</button>
+       			<button class="col button button-small button-round button-fill" data-number="8">8</button>
+       			<button class="col button button-small button-round button-fill" data-number="9">9</button>
+       		</div>
+       		<div class="row">
+       			<button class="col button button-small button-round button-fill" data-number="4">4</button>
+       			<button class="col button button-small button-round button-fill" data-number="5">5</button>
+       			<button class="col button button-small button-round button-fill" data-number="6">6</button>
+       		</div>
+       		<div class="row">
+       			<button class="col button button-small button-round button-fill" data-number="1">1</button>
+       			<button class="col button button-small button-round button-fill" data-number="2">2</button>
+       			<button class="col button button-small button-round button-fill" data-number="3">3</button>
+       		</div>
+       		<div class="row">
+       			<button class="col button button-small button-round button-fill color-red" data-number="back"><i class="f7-icons">chevron_left</i></button>
+       			<button class="col button button-small button-round button-fill" data-number="0">0</button>
+       			<button class="col button button-small button-round button-fill color-green" data-number="done"><i class="f7-icons">check</i></button>
+       		</div>
+       	</div>
+      </div>
+    </div>
+  </div>
+      
 
       <!-- Your main view, should have "view-main" class -->
       <div class="view view-main">
@@ -56,12 +110,29 @@
           
 
           <!-- Scrollable page content -->
-          <div class="page-content padding-5">
+          <div class="page-content ">
           
-            <p>Page content goes here</p>
+            
+            
             <!-- Link to another page -->
-            <a href="/about/">About app</a><hr>
-            <p><a href="#" class="panel-open">Open Left Panel</a></p>
+            <div class="logged-out">
+	            <p class="text-center">
+	          		<img class="home-img" src="images/btIcon.png" />
+	          		<br>
+	          		<h2 class="text-center">Barrett Plumbing Employee</h2>
+	          		This app is for use only by Barrett Plumbing Employees. Before accessing it, you'll need to login with the information provided to you by your supervisor.
+	          		<p class="row">
+		            	<button class="col button button-big button-raised button-fill login-button">Login to access App</button>            
+		            </p> 
+	          	</p>
+	        </div>
+	        
+	        <div class="logged-in">
+	       		<h2 class="text-center">Barrett Plumbing Employee</h2>
+	            <p class="row ">
+	            	<button class="col button button-big button-raised button-fill" onclick="bp.hardLogout();">Logout</button>            
+	            </p>
+	        </div>          
           </div>
         </div>
       </div>
@@ -69,7 +140,10 @@
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="lib/framework7/js/framework7.js"></script>
     <!-- Path to your app js-->
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
     <script type="text/javascript" src="js/bp-core.js"></script>
-  </body>
+    <script type="text/javascript" src="js/bp-punch.js"></script>  
+    <script type="text/javascript" src="js/bp-admin.js"></script>
+     </body>
 </html>

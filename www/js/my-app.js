@@ -1,14 +1,14 @@
 var apiLevel = "m21+t26+";
 var app;
 function setupApp(){
-	var prefTheme = "md";
-	if(window.localStorage.getItem("theme") == "ios")
-		prefTheme = "ios";
+	var prefTheme = "ios";
+	if(window.localStorage.getItem("theme") == "md")
+		prefTheme = "md";
 	app = new Framework7({
 		  root: '#app',
 		  name: 'Barrett Plumbing',
 		  id: 'tech.bano.bp', 
-		  version: "146",
+		  version: "151",
 		  panel: {
 		    swipe: 'left',
 		  },
@@ -101,7 +101,7 @@ $$(document).on('page:init', function (e) {
 	// Page Data contains all required information about loaded and initialized page
 	var page = e.detail;
 	var name = page.name;
-	console.log(name);
+	//console.log(name);
 	bp.update();
 
 	checkDayNight();
@@ -119,7 +119,7 @@ $$(document).on('page:init', function (e) {
 	}
 	if(name == "admin"){
 		bp.verifyAdmin();
-		console.log("Admin");
+		bp.admin.init();
 	}
 });
 $(document).ready(function(){
@@ -129,4 +129,6 @@ $(document).ready(function(){
 	checkDayNight();
 	addSubsystem("Punch Control",punchControl);
 	addSubsystem("Administration",admin);
+	app.views.current.router.pushState = true;
+	app.views.current.router.pushStateAnimate = true;
 });

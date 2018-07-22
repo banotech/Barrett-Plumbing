@@ -29832,7 +29832,7 @@
 
     return ViAd;
   }(Framework7Class));
-
+  
   var Vi = {
     name: 'vi',
     params: {
@@ -29975,7 +29975,6 @@
     Vi,
     Typography
   ]);
-
   return Framework7;
 
 })));

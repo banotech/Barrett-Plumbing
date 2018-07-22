@@ -4,11 +4,18 @@ var bp = {
 	popup: function(body){
 		app.dialog.alert(body);
 	},
-	confirm: function(){
-		
+	confirm: function(question,doAfter){
+		app.dialog.confirm(question, doAfter);
 	},
-	getNumber: function(){
-		
+	prompt: function(question,doAfter){
+		app.dialog.prompt(question,function(input){
+			doAfter(input);
+		});
+	},
+	getText: function(question,doAfter){
+		app.dialog.prompt(question, function (name) {
+		    doAfter(name);
+		  });
 	},
 	update: function(){
 		$(".login-button").unbind("click").on("click",function(){
@@ -190,9 +197,11 @@ var bp = {
 	hardLogout: function(){
 		var theme = window.localStorage.getItem("theme");
 		var dn = window.localStorage.getItem("dayNight");
+		var color = window.localStorage.getItem("colorTheme");
 		window.localStorage.clear();
 		window.localStorage.setItem("theme",theme);
 		window.localStorage.setItem("dayNight",dn);
+		window.localStorage.setItem("colorTheme",color);
 		bp.loggedIn = false;
 		bp.toast("Hard logout complete!");
 		bp.update();
@@ -212,6 +221,10 @@ var bp = {
 				window.localStorage.setItem("pin",data.pin);
 				bp.updateUser();
 				bp.update();
+			}
+			else if(data.status == "denied"){
+				bp.endLoad();
+				bp.popup("Your access to this app has been denied. Please contact your supervisor.");
 			}else{
 				bp.endLoad();
 				bp.popup("That pin didn't work. Try again or contact your supervisor.");
@@ -251,6 +264,7 @@ var bp = {
 	buildings: [],
 	units: [],
 	categories: [],
+	punches: [],
 	_loadDB: function(){
 		users = [];
 		properties = [];
@@ -259,7 +273,7 @@ var bp = {
 		categories = [];
 		app.request.get("https://bano.tech/bp-app/bp.php?function=loadDB",function(data){
 			data = JSON.parse(data);
-			console.log("DB Updated.");
+			//console.log("DB Updated.");
 			if(data.status == "good"){
 				bp.endLoad();
 				bp.users = data.users;
@@ -267,6 +281,7 @@ var bp = {
 				bp.buildings = data.buildings;
 				bp.units = data.units;
 				bp.categories = data.categories;
+				bp.punches = data.punches;
 				//console.log(data);
 				//console.log(bp.buildings);
 			}else{
@@ -306,6 +321,13 @@ var bp = {
 		for(i = 0; i < bp.categories.length; i++){
 			if(bp.categories[i].id == id)
 				return bp.categories[i];
+		}
+		return undefined;
+	},
+	getPunch: function(id){
+		for(i = 0; i < bp.punches.length; i++){
+			if(bp.punches[i].id == id)
+				return bp.punches[i];
 		}
 		return undefined;
 	},

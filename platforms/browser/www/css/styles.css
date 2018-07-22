@@ -10,7 +10,117 @@
    See https://github.com/apache/cordova-plugin-statusbar
 */
 
+.home-img{
+	width:35vw;
+}
+.text-center{
+	text-align:center;
+}
+.text-left{
+	text-align:left;
+}
+.statusbar-overlay {
+    background: #2196f3;
+    transition: 400ms;
+}
+.night-sheet .sheet-modal-inner{
+	color:white;
+	background-color:#333;
+}
+.night-text-white{
+	color:white;
+}
+.input-sheet{
+	height:70vh;
+}
+.half-sheet{
+	min-height:50vh;
+}
+.full-sheet{
+	min-height:100vh;
+	
+}
+.punch-table tr{
+	border-bottom:1px solid gray;
+}
+@media (max-height: 600px){
+	.input-sheet{
+		height:80vh;
+	}
+}
+@media (max-height: 500px){
+	.input-sheet{
+		height:100vh;
+	}
+	.num-pad .row .output{
+		font-size:24px;
+	}
+	.hide-500{
+		display:none;
+	}
+}
+
+.login-sheet .block{
+	overflow-y:auto;
+}
+.num-pad{
+	text-align:center;
+}
+.num-pad .row .output{
+	text-align:center;
+	font-weight:bold;
+	font-size:36px;
+	width:100%;
+}
+.num-pad .row{
+	margin-bottom:10px;
+}
+.num-pad .row .button{
+	font-size:30px;
+	padding:5px;
+	height:40px;
+}
 
 .padding-5{
 	padding:5px;
+}
+.padding-10{
+	padding:10px;
+}
+.padding-15{
+	padding:15px;
+}
+.padding-20{
+	padding:20px;
+}
+.padding-25{
+	padding:25px;
+}
+.padding-50{
+	padding:50px;
+}
+.padding-100{
+	padding:100px;
+}
+
+.margin-5{
+	margin:5px;
+}
+.margin-10{
+	margin:10px;
+}
+.margin-15{
+	margin:15px;
+}
+.margin-20{
+	margin:20px;
+}
+.margin-25{
+	margin:25px;
+}
+.margin-50{
+	margin:50px;
+}
+.margin-100{
+	margin:100px;
 }
