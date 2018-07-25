@@ -1,5 +1,6 @@
 var apiLevel = "m21+t26+";
 var app;
+var loadTime = 2000;
 function setupApp(){
 	var prefTheme = "ios";
 	if(window.localStorage.getItem("theme") == "md")
@@ -8,7 +9,7 @@ function setupApp(){
 		  root: '#app',
 		  name: 'Barrett Plumbing',
 		  id: 'tech.bano.bp', 
-		  version: "151",
+		  version: "152",
 		  panel: {
 		    swipe: 'left',
 		  },
@@ -131,4 +132,10 @@ $(document).ready(function(){
 	addSubsystem("Administration",admin);
 	app.views.current.router.pushState = true;
 	app.views.current.router.pushStateAnimate = true;
+	setTimeout(function(){
+		$(".splash").addClass("done");
+		setTimeout(function(){
+			$(".splash").addClass("close");
+		},500);
+	},loadTime);
 });

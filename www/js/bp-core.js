@@ -248,13 +248,13 @@ var bp = {
 		bp._loading_dialog.close();
 	},
 	testConnection(){
-		bp.startLoad();
+		//bp.startLoad();
 		app.request.get("https://bano.tech/bp-app/bp.php?function=test",function(data){
 			//console.log(data);
 			if(data == "GOOD"){
-				bp.endLoad();
+				//bp.endLoad();
 			}else{
-				bp.endLoad();
+				//bp.endLoad();
 				bp.popup("There was an error connecting to the servers. Please check your internet connection and try again later.");
 			}
 		});
@@ -275,7 +275,7 @@ var bp = {
 			data = JSON.parse(data);
 			//console.log("DB Updated.");
 			if(data.status == "good"){
-				bp.endLoad();
+				//bp.endLoad();
 				bp.users = data.users;
 				bp.properties = data.properties;
 				bp.buildings = data.buildings;

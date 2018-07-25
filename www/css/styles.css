@@ -9,7 +9,28 @@
 
    See https://github.com/apache/cordova-plugin-statusbar
 */
-
+.splash{
+	position:fixed;
+	width:100vw;
+	height:100vh;
+	text-align:center;
+	z-index:10000;
+	padding-top:25vh;
+	background:#007aff;
+	text-shadow:0px 0px 20px black;
+	color:white;
+	transition:all ease-in 500ms;
+}
+.splash h1{
+	font-size:72px;
+}
+.splash.done{
+	opacity:0;
+}
+.splash.done.close{
+	width:0;
+	height:0;
+}
 .home-img{
 	width:35vw;
 }

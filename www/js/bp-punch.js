@@ -37,6 +37,9 @@ var punchControl = {
 			bp.clockOutCalendar = app.calendar.create({
 			  inputEl: '#demo-calendar-default',
 			  dateFormat: 'mm-dd-yyyy',
+			  openIn: 'popover',
+			  header: true,
+			  footer: false,
 			  value: [date]
 			});
 			bp.clockOutTimePicker = app.picker.create({
@@ -208,12 +211,12 @@ var punchControl = {
 			
 			if(bp._openPunch !== undefined){
 				//CLOCK OUT FORCE
-				bp.getPunchInput(function(date,time){
+				bp.getPunchInput(function(date,time,comment){
 					//console.log(date+" | "+time);
 					bp.startLoad();
 					
 					
-					app.request.get("https://bano.tech/bp-app/bp.php?function=punchOut&id="+bp._openPunch.id+"&date="+date+"&time="+time,function(data){
+					app.request.get("https://bano.tech/bp-app/bp.php?function=punchOut&id="+bp._openPunch.id+"&date="+date+"&time="+time+"&comment="+comment,function(data){
 						console.log(data);
 						if(data == "GOOD"){
 							bp.endLoad();
@@ -284,7 +287,7 @@ var punchControl = {
 			$(".confirm-punch").unbind("click").on("click",function(){
 				app.sheet.close(".punch-input");
 				if(doAfter !== undefined)
-					doAfter($("#demo-calendar-default").val(),$("#demo-picker-date").val());
+					doAfter($("#demo-calendar-default").val(),$("#demo-picker-date").val(),$("#punch-out-comment").val());
 				
 			});
 		},
@@ -345,6 +348,7 @@ var punchControl = {
 							//get building id
 							unit = bp.getUnit(unitID);
 							bldID = bp.getBuilding(unit.building).id;
+							comment = $("#punch-in-comment").val();
 						}
 					}else{
 						error = true;
@@ -377,6 +381,7 @@ var punchControl = {
 					unitID = 0;
 					bldID = 0;
 				}
+				
 				//console.log(bp.user.id+" "+propID+" "+bldID+" "+unitID);
 				if(!error){
 					app.sheet.close(".punch-input-new");
@@ -389,6 +394,7 @@ var punchControl = {
 			});
 			
 			$(".punch-type-unit").show(200);
+			$(".comment-holder").show(200);
 			$(".punch-type-building").hide(200);
 			$(".punch-type-other").hide(200);
 			$(".punch-select").removeClass("button-active");
@@ -397,6 +403,7 @@ var punchControl = {
 			
 			$("#punch-select-unit").unbind("click").on("click",function(){
 				$(".punch-type-unit").show(200);
+				$(".comment-holder").show(200);
 				$(".punch-type-building").hide(200);
 				$(".punch-type-other").hide(200);
 				$(".punch-select").removeClass("button-active");
@@ -406,6 +413,7 @@ var punchControl = {
 			$("#punch-select-building").unbind("click").on("click",function(){
 				$(".punch-type-unit").hide(200);
 				$(".punch-type-building").show(200);
+				$(".comment-holder").hide(200);
 				$(".punch-type-other").hide(200);
 				$(".punch-select").removeClass("button-active");
 				$(this).addClass("button-active");
@@ -414,6 +422,7 @@ var punchControl = {
 			$("#punch-select-other").unbind("click").on("click",function(){
 				$(".punch-type-unit").hide(200);
 				$(".punch-type-building").hide(200);
+				$(".comment-holder").hide(200);
 				$(".punch-type-other").show(200);
 				$(".punch-select").removeClass("button-active");
 				$(this).addClass("button-active");
@@ -429,10 +438,11 @@ var punchControl = {
 				output += "<div class='row'><div class='col'><h3>Start Punch</h3><strong>"+bp._openPunch.inDate+" "+bp._openPunch.inTime+"</strong></div>";
 				output += "<div class='col'><h3>End Punch</h3><button class='button button-raised button-fill button-round color-red punch-out'><i class='f7-icons'>alarm_fill</i> Punch Out</button></div>";
 				$(".active-punch").html(output);
+				$("#punch-out-comment").val(bp._openPunch.comment);
 				$(".punch-out").unbind("click").on("click",function(){
 					//console.log(app.views.current.router);
 					
-					bp.newPunch(true);
+					bp.newPunch(true);	
 				});
 			}
 			if(bp._punches.length > 0){
